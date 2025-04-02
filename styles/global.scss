@@ -1,0 +1,11 @@
+@import 'tailwindcss';
+
+.container {
+  @apply max-w-screen-xl mx-auto py-4;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
