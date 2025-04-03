@@ -5,23 +5,21 @@ import React from 'react';
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement | HTMLTextAreaElement> {
   type?: string;
   placeholder?: string;
-  state: string;
-  setState: React.Dispatch<React.SetStateAction<string>>;
   name?: string;
   label?: string;
   isTextarea?: boolean;
   variant?: 'default' | 'outlined';
+  message?: string;
 }
 
 export default function Input({
   type = 'text',
   placeholder,
-  state,
-  setState,
   name,
   label,
   isTextarea = false,
   variant = 'default',
+  message,
   ...rest
 }: InputProps) {
   const baseStyles = 'w-full p-2 text-sm';
@@ -40,25 +38,11 @@ export default function Input({
         </label>
       )}
       {isTextarea ? (
-        <textarea
-          id={name}
-          placeholder={placeholder}
-          value={state}
-          onChange={(e) => setState(e.target.value)}
-          className={inputStyles}
-          {...rest}
-        />
+        <textarea id={name} placeholder={placeholder} className={inputStyles} {...rest} />
       ) : (
-        <input
-          id={name}
-          type={type}
-          placeholder={placeholder}
-          value={state}
-          onChange={(e) => setState(e.target.value)}
-          className={inputStyles}
-          {...rest}
-        />
+        <input id={name} type={type} placeholder={placeholder} className={inputStyles} {...rest} />
       )}
+      {message && <span className="text-red-500 text-sm">{message}</span>}
     </div>
   );
 }
