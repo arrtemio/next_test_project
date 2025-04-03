@@ -32,9 +32,9 @@ export default function CreateNote() {
   const onSubmit = async (data: FormValues) => {
     try {
       await createNote(data);
-      toast.success('Note created successfully! ✅');
+      toast.success('Note created successfully!');
     } catch (error: unknown) {
-      toast.error('Failed to create note. Please try again later. ❌');
+      toast.error('Failed to create note. Please try again later.');
     }
   };
 

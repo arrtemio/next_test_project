@@ -32,9 +32,9 @@ export default function UpdateNote({ note }: UpdateNoteProps) {
   const onSubmit = async (data: FormValues) => {
     try {
       await updateNote({ ...data, id: note.id });
-      toast.success('Note updated successfully! ✅');
+      toast.success('Note updated successfully!');
     } catch (error: unknown) {
-      toast.error('Failed to update note. Please try again later. ❌');
+      toast.error('Failed to update note. Please try again later.');
     }
   };
 
