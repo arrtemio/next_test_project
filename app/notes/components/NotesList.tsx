@@ -12,7 +12,7 @@ interface NotesListProps {
 export default function NotesList({ data }: NotesListProps) {
   const [notes, setNotes] = React.useState<Note[]>(data);
 
-  const handleDeleteNote = async (id: number) => {
+  const handleDeleteNote = async (id: string) => {
     await deleteNote(id).then(() =>
       setNotes((prevNotes) => prevNotes.filter((note) => note.id !== id))
     );

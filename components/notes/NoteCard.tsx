@@ -8,7 +8,7 @@ import { toast } from 'react-toastify';
 
 interface NoteCardProps {
   note: Note;
-  deleteNote: (id: number) => void;
+  deleteNote: (id: string) => void;
 }
 
 export default function NoteCard({ note, deleteNote }: NoteCardProps) {
@@ -24,7 +24,7 @@ export default function NoteCard({ note, deleteNote }: NoteCardProps) {
       await deleteNote(note.id);
       toast.success('Note deleted successfully!');
     } catch (error: unknown) {
-      toast.error('Failed to delete note. Please try again later. ❌');
+      toast.error('Failed to delete note. Please try again later.');
     }
   };
 

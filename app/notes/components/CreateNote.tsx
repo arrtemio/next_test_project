@@ -45,7 +45,7 @@ export default function CreateNote() {
       </div>
       {isOpen && (
         <Modal onClose={handleClose}>
-          <div className="w-full max-w-[500px] p-4">
+          <div className="w-full p-4">
             <form onSubmit={handleSubmit(onSubmit)}>
               <Controller
                 name="title"

@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Portal from '@/components/portal/Portal';
+import Button from '../button/Button';
 
 interface ModalProps {
   children: React.ReactNode;
@@ -16,15 +17,17 @@ export default function Modal({ children, onClose }: ModalProps) {
         onClick={() => onClose()}
       >
         <div
-          className="bg-white rounded-lg shadow-lg p-4 relative modal-container"
+          className="w-full max-w-[400px] bg-white rounded-lg shadow-lg p-4 relative modal-container"
           onClick={(e) => e.stopPropagation()}
         >
-          <button
+          <Button
             onClick={() => onClose()}
-            className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
+            variant="unfilled"
+            size="small"
+            className="absolute top-2 right-2"
           >
             ✕
-          </button>
+          </Button>
           {children}
         </div>
       </div>
