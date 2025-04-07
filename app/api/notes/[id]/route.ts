@@ -5,7 +5,7 @@ export async function DELETE(
   req: Request,
   { params }: { params: { id: string } }
 ): Promise<NextResponse> {
-  const { id } = params;
+  const { id } = await params;
   const res = await fetch(`http://localhost:5000/notes/${id}`, {
     method: 'DELETE',
   });

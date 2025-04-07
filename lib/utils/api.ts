@@ -1,7 +1,10 @@
-import { Note } from '../types/INote';
+import { Note, NotesLimitResponse } from '../types/INote';
 
-export async function fetchNotes(): Promise<Note[]> {
-  const res = await fetch('http://localhost:3000/api/notes', {
+export async function fetchNotes(
+  page: number = 1,
+  limit: number = 10
+): Promise<NotesLimitResponse> {
+  const res = await fetch(`http://localhost:3000/api/notes?_page=${page}&_per_page=${limit}`, {
     method: 'GET',
     cache: 'no-store',
   });
@@ -48,7 +51,7 @@ export async function updateNote(note: Note) {
   if (!res.ok) throw new Error(data.message);
 }
 
-export async function deleteNote(id: number): Promise<void> {
+export async function deleteNote(id: string): Promise<void> {
   const res = await fetch(`http://localhost:3000/api/notes/${id}`, {
     method: 'DELETE',
   });
